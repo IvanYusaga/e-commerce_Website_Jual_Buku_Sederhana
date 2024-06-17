@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . '/cek-akses.php';
+checkUserAccess('orderSukses');
+
 if (!isset($_GET['id']) || empty($_GET['id'])) {
     header('Location: index.php');
     exit;
@@ -32,7 +35,7 @@ if (!$pesanan) {
     <div class="container">
         <div class="alert alert-success">Pesanan Tersimpan</div>
         <p>Terima kasih atas pesanan Anda. Kami akan segera proses pesanana Anda.
-            ID Pesanan Anda Adalah: <a href="login.php?back=lihat-pesanan.php?id=<?php echo htmlentities($_GET['id']); ?>"><?php echo htmlentities($_GET['id']); ?></a>
+            ID Pesanan Anda Adalah: <a href="lihat-pesanan.php?id=<?php echo htmlentities($_GET['id']); ?>"><?php echo htmlentities($_GET['id']); ?></a>
         </p>
     </div>
     </div>

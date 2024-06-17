@@ -11,4 +11,5 @@ return array_merge($access, [
     'buatPesanan' => false,
     'keranjang' => true,
     'lihatKeranjang' => true,
+    'orderSukses' => true,
 ]);
