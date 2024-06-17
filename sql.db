@@ -1,0 +1,90 @@
+CREATE DATABASE ecommerce;
+
+CREATE TABLE produk
+(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    kode VARCHAR(25),
+    nama VARCHAR(255),
+    deskripsi TEXT,
+    stok INT,
+    harga INT,
+    PRIMARY KEY (id),
+);
+
+CREATE TABLE gambar_produk
+(
+    id BIGINT(20) NOT NULL AUTO_INCREMENT,
+    id_produk BIGINT(20) NOT NULL,
+    gambar VARCHAR(255),
+    utama TINYINT(1),
+    PRIMARY KEY (id),
+    CONSTRAINT gambar_produk_id_produk_fkey FOREIGN KEY (id_produk)
+        REFERENCES produk (id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE users
+(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    nama VARCHAR(255),
+    email VARCHAR(255) NOT NULL,
+    PASSWORD VARCHAR(255),
+    tipe VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id),
+    UNIQUE KEY (email)
+);
+
+CREATE TABLE alamat
+(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    id_user BIGINT NOT NULL,
+    jalan VARCHAR(255),
+    desa VARCHAR(255),
+    kecamatan VARCHAR(255),
+    kabupaten VARCHAR(255),
+    provinsi VARCHAR(255),
+    kodepos VARCHAR(20),
+    PRIMARY KEY (id),
+    CONSTRAINT alamat_id_user_fkey FOREIGN KEY (id_user)
+        REFERENCES users (id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE pesanan
+(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    id_user BIGINT NOT NULL,
+    total_harga BIGINT,
+    tanggal_pesanan DATE,
+    id_alamat BIGINT,
+    PRIMARY KEY (id),
+    CONSTRAINT pesanan_id_alamat_fkey FOREIGN KEY (id_alamat)
+        REFERENCES alamat (id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT pesanan_id_user_fkey FOREIGN KEY (id_user)
+        REFERENCES users (id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
+CREATE TABLE item_pesanan
+(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    id_pesanan BIGINT NOT NULL,
+    id_produk BIGINT,
+    harga INT,
+    qty INT,
+    PRIMARY KEY (id),
+    CONSTRAINT item_pesanan_id_pesanan_fkey FOREIGN KEY (id_pesanan)
+        REFERENCES pesanan (id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT item_pesanan_id_produk_fkey FOREIGN KEY (id_produk)
+        REFERENCES produk (id)
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+);
+
