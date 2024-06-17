@@ -44,7 +44,7 @@ if (!empty($_POST)) {
                 'id_produk' => $produkId,
                 'gambar' => $filename
             ]);
-            move_uploaded_file($_FILES['gambar_utama']['tmp_name'], '../images/' . $filename);
+            move_uploaded_file($_FILES['gambar_utama']['tmp_name'], 'images/' . $filename);
         }
         foreach ($_FILES['gambar']['name'] as $index => $name) {
             if (empty($name)) {
@@ -70,7 +70,7 @@ if (!empty($_POST)) {
                 'gambar' => $filename
             ]);
 
-            move_uploaded_file($_FILES['gambar']['tmp_name'][$index], '../images/' . $filename);
+            move_uploaded_file($_FILES['gambar']['tmp_name'][$index], 'images/' . $filename);
         }
         $pdo->commit();
         header("Location: tambah-produk.php");
