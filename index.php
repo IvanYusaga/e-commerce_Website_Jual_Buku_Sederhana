@@ -1,6 +1,20 @@
 <?php
 require_once __DIR__ . '/cek-akses.php';
 checkUserAccess('home');
+
+// Cek akses sebelum menampilkan tambah produk pesan sukses
+if (isset($_GET['pesanProduk']) && $_GET['pesanProduk'] == 'sukses' && hasAccess('tambahProduk')) {
+    echo "<script>
+            alert('produk berhasil di tambahkan');
+        </script>";
+}
+
+// Cek akses sebelum menampilkan hapus produk pesan sukses
+if (isset($_GET['pesanHapus']) && $_GET['pesanHapus'] == 'sukses' && hasAccess('hapusProduk')) {
+    echo "<script>
+            alert('produk berhasil di hapus');
+        </script>";
+}
 ?>
 
 <!DOCTYPE html>

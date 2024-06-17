@@ -29,9 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Redirect ke halaman utama dengan pesan sukses atau error
     if ($queryHapusProduk->rowCount() > 0) {
-        header('Location: index.php?pesan=sukses');
+        header('Location: index.php?pesanHapus=sukses');
     } else {
-        header('Location: index.php?pesan=error');
+        header('Location: index.php?pesanHapus=error');
     }
     exit(); // Pastikan keluar dari script setelah melakukan redirect
 }

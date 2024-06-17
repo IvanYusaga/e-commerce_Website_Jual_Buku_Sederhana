@@ -73,7 +73,7 @@ if (!empty($_POST)) {
             move_uploaded_file($_FILES['gambar']['tmp_name'][$index], 'images/' . $filename);
         }
         $pdo->commit();
-        header("Location: tambah-produk.php");
+        header("Location: index.php?pesanProduk=sukses");
         exit;
     } catch (Exception $e) {
         $pdo->rollBack();
@@ -93,6 +93,9 @@ if (!empty($_POST)) {
 </head>
 
 <body>
+    <?php
+    include 'menu.php';
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
