@@ -6,4 +6,5 @@ return array_merge($access, [
     'keranjang' => false,
     'buatPesanan' => true,
     'lihatKeranjang' => false,
+    'hapusProduk' => true,
 ]);

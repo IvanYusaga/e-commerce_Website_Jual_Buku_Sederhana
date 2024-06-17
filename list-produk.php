@@ -29,6 +29,15 @@ $query->execute();
                         <?php echo htmlentities($produk['nama']); ?>
                     </a></h5>
                 <p class="book-price">Rp <?php echo number_format($produk['harga'], 0, ',', '.'); ?></p>
+                <?php
+                if (hasAccess('hapusProduk')) {
+                ?>
+                    <form action="hapus-produk.php" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus produk ini?');">
+                        <input type="hidden" name="id_produk" value="<?php echo $produk['id']; ?>">
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
+                <?php } ?>
+
             </div>
         </div>
     <?php } ?>
