@@ -1,59 +1,127 @@
-.book-container {
-    display: flex;
-    justify-content: space-around;
+/* General body styling */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Navbar styling */
+nav {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(167, 167, 167);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 0 20px; /* Add some padding for spacing */
+}
+
+.nav-img img {
+  height: 50px; /* Adjust the logo height */
+}
+
+.nav-img {
+  margin-right: auto;
+}
+
+.home,
+.login-register,
+.cart,
+.order-list,
+.upload-product,
+.logout {
+  margin-left: 20px;
+  color: rgb(99, 129, 141);
+  font-size: 16px;
+}
+
+.home a,
+.login-register a,
+.cart a,
+.order-list a,
+.upload-product a,
+.logout a {
+  text-decoration: none;
+  color: rgb(99, 129, 141);
+}
+
+.cart i {
+  vertical-align: middle;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
     flex-wrap: wrap;
-    height: auto;
+    justify-content: center;
+  }
+  .home,
+  .login-register,
+  .cart,
+  .order-list,
+  .upload-product,
+  .logout {
+    margin-left: 10px;
+    font-size: 14px;
+  }
+  .nav-img img {
+    height: 40px;
+  }
 }
 
-/* box container */
+/* Additional styling for the rest of the page */
+.book-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: auto;
+}
+
 .book {
-height: 40vh;
-width: 12vw;
-margin-top: 6vh;
-margin-bottom: 20px;
-margin-right: 30px;
-border: 1px solid #ccc;
-border-radius: 5px;
-padding: 10px;
-display: flex;
-flex-direction:column;
-justify-content: space-between;
+  height: 40vh;
+  width: 12vw;
+  margin-top: 6vh;
+  margin-bottom: 20px;
+  margin-right: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* gambar di container */
 .book img {
-    width: 100%;
-    height: 25vh;
+  width: 100%;
+  height: 25vh;
 }
 
 .book-title {
-font-weight: bold;
-overflow: hidden; /* Menyembunyikan teks yang melebihi batas kotak */
-white-space: nowrap; /* Mencegah teks pindah ke baris baru */
-text-overflow: ellipsis; /* Menampilkan elipsis (...) jika teks terpotong */
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .book-title a {
-    text-decoration: none; /* Menghilangkan garis biru di sekitar tautan */
-    color: black;
-    font-size: 1.4vw;
-    overflow: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 1.4vw;
+  overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
 .book-price {
-    margin-top: 1.25vh;
-    font-size: 1vw;
-    font-family: sans-serif;
-    font-weight: 900;
-    color: #186ac7
-    
+  margin-top: 1.25vh;
+  font-size: 1vw;
+  font-family: sans-serif;
+  font-weight: 900;
+  color: #186ac7;
 }
 
 .img-fluid-small {
-width: 50px;
-height: auto;
+  width: 50px;
+  height: auto;
 }
-
